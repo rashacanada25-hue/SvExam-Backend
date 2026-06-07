@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
- "scripts": {
+  "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
@@ -12,9 +12,12 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "cors": "^2.8.5",
+    "@ai-sdk/openai": "^3.0.68",
+    "ai": "^6.0.197",
+    "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "mongoose": "^8.19.1"
+    "mongoose": "^8.24.0",
+    "zod": "^4.4.3"
   }
 }
