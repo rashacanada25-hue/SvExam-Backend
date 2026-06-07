@@ -4,7 +4,7 @@ Express + MongoDB API for the Fullstack Movie Watchlist exam.
 
 ## Live Link
 
-- Backend: _(add your deployed URL here, e.g. Render/Railway)_
+- Backend: https://svexam-backend-production-b40e.up.railway.app
 
 ## Endpoints
 
@@ -36,5 +36,5 @@ AI was used with Cursor to scaffold the Express routes, MongoDB schema, and the 
 
 ## Frontend
 
-- Frontend repo: _(add GitHub link)_
-- Frontend live: _(add Vercel URL)_
+- Frontend repo: https://github.com/rashacanada25-hue/svExam-frontend
+- Frontend live: https://frontend-umber-psi-57.vercel.app

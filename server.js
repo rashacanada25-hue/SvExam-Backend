@@ -86,16 +86,26 @@ app.post('/movies/generate', async (req, res) => {
   try {
     const { title, genre } = req.body;
 
+    if (!title?.trim() || !genre?.trim()) {
+      return res.status(400).json({ error: 'title and genre are required' });
+    }
+
     const { object } = await generateObject({
       model: openai('openai/gpt-4o'),
       schema: z.object({
-        description: z.string().describe('Short and interesting movie description'),
+        description: z.string().describe('תיאור קצר של הסרט'),
       }),
-      prompt: `Create a short description for a movie titled "${title}" in the ${genre} genre.`,
+      prompt: `Write a short movie description based on this idea.
+Title or idea: ${title.trim()}
+Genre: ${genre.trim()}
+Respond in JSON only with this shape: { "description": "תיאור קצר של הסרט" }`,
     });
 
-    res.status(200).json(object);
+    res.status(200).json({
+      description: object.description.trim().slice(0, 200),
+    });
   } catch (err) {
+    console.error('AI generation error:', err.message);
     res.status(500).json({ error: 'AI generation failed' });
   }
 });
