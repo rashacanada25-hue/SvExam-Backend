@@ -4,7 +4,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const { generateObject } = require('ai');
-const { createOpenAI } = require('@ai-sdk/openai');
+const { createGoogleGenerativeAI } = require('@ai-sdk/google');
 const { z } = require('zod');
 const Movie = require('./movie');
 
@@ -18,9 +18,8 @@ app.get('/', (req, res) => {
   res.status(200).json({ status: 'ok', message: 'Movie Watchlist API' });
 });
 
-const openai = createOpenAI({
-  apiKey: process.env.AI_GATEWAY_API_KEY,
-  baseURL: 'https://ai-gateway.vercel.sh/v1',
+const google = createGoogleGenerativeAI({
+  apiKey: process.env.GEMINI_API_KEY,
 });
 
 app.get('/movies', async (req, res) => {
@@ -91,7 +90,7 @@ app.post('/movies/generate', async (req, res) => {
     }
 
     const { object } = await generateObject({
-      model: openai('openai/gpt-4o'),
+      model: google('gemini-2.5-flash'),
       schema: z.object({
         description: z.string().describe('תיאור קצר של הסרט'),
       }),
