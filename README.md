@@ -30,9 +30,17 @@ Required environment variables:
 - `GEMINI_API_KEY` - Free key from https://aistudio.google.com/apikey
 - `PORT` - optional, defaults to `3000`
 
+## Railway (Production)
+
+Set these variables in Railway → SvExam-Backend → Variables, then Redeploy:
+
+- `MONGO_URI` - MongoDB Atlas connection string
+- `GEMINI_API_KEY` - Free key from https://aistudio.google.com/apikey
+- `PORT` - Railway sets this automatically (optional)
+
 ## AI Usage
 
-AI was used with Cursor to scaffold the Express routes, MongoDB schema, and the `/movies/generate` endpoint with Google Gemini free API.
+AI was used with Cursor to scaffold the Express routes, MongoDB schema, and the `/movies/generate` endpoint with Google Gemini free API (no credit card required).
 
 ## Frontend
 
